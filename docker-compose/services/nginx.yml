@@ -11,6 +11,9 @@ services:
     environment:
       BACK_PROXY_PASS: ${BACK_PROXY_PASS:-http://backend:4000}
       FRONT_PROXY_PASS: ${FRONT_PROXY_PASS:-http://frontend:3000}
+      STATS_PROXY_PASS: http://stats:8050
+      RPC_PROXY_PASS: http://host.docker.internal:8545/
+      PROXIED_FRONT_URL: https://${INTERNET_HOST}
     ports:
       - target: 80
         published: 80
